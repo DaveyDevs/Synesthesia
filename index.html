@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <meta charset="utf-8" />
-  <title>Color picker</title>
- </head<!DOCTYPE html>
-<html>
   <head>
     <meta charset="utf-8" />
     <title>Synesthesia</title>
@@ -131,11 +126,21 @@
       font-size: 1em;
       width: 80vw;
     }
+
+    #forminput {
+      position: absolute;
+      border-color: black;
+      border-style: solid;
+      padding: 0;
+      font-size: 1em;
+      width: 80vw;
+      opacity: 0;
+    }
   </style>
 
   <body>
     <div id="intro">
-      <h1 id="title">COLOR PICKER</h1>
+      <h1 id="title">Synesthesia</h1>
 
       <h2 id="description">
         My partner has something called synesthesia.
@@ -203,6 +208,7 @@
     </div>
 
     <div id="typed-container">
+      <input name="forminput" type="text" id="forminput" />
       <h1 id="typed"></h1>
     </div>
 
@@ -356,7 +362,15 @@
               }
             }
           };
-          typed.addEventListener("click", typingColors);
+          document
+            .getElementById("forminput")
+            .addEventListener("click", typingColors);
+          document
+            .getElementById("forminput")
+            .addEventListener("tap", typingColors);
+          document
+            .getElementById("forminput")
+            .addEventListener("touch", typingColors);
         }
 
         // Backspace! I got it to work here, I was not able to get it to work further inside the typing function. Good enough for now :)
@@ -372,366 +386,4 @@
       startButton.addEventListener("click", generatedAlphabet);
     </script>
   </body>
-</html>
-
-
- <style>
-     body {
-         font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-     }
-
-     button {
-         cursor: pointer;
-     }
-
-     #intro {
-        position: relative;
-        margin: 0 2%;
-     }
-
-     #title {
-        position: relative;
-        font-size: 3em;
-     }
-
-     /* Need to fix positioning on this at some point */
-     a {
-        position: relative;
-        border: none;
-        font: inherit;
-        color: inherit;
-        font-size: 2em;
-     }
-
-     #description {
-         position: relative;
-         padding: 0;
-         margin: 0 0 0 0;
-     }
-
-
-     #startbutton {
-        position: relative;
-        /* padding: 0; */
-        margin: 4% 2% 0 2%;
-        border: none;
-        font: inherit;
-        color: inherit;
-        font-size: 3em;
-        background-color: transparent;
-        cursor: pointer;
-        border-color: black;
-        border-style: solid;
-     }
-
-     #generated {
-        position: relative;
-        margin: 2% 2% 0;
-        font-size: 5em;
-     }
-
-
-     .colorboxes {
-        position: relative;
-        display: inline-block;
-        margin: 1% 2%;
-        padding: 0;
-        border: none;
-        font: inherit;
-        color: inherit; 
-     }
-     
-     .box {
-        position: relative;
-        padding: 0;
-        border: none;
-        font: inherit;
-        color: inherit; 
-        border-color: black;
-        border-style: solid;
-        width: 50px;
-        height: 50px;
-     }
-
-        .red{
-            background: red; 
-        }
-        .orange{
-            background: orange;
-        }
-        .yellow{
-            background: yellow;
-        }
-        .green{
-            background: green;
-        }
-        .blue{
-            background: blue;
-        }
-        .purple{
-            background: purple;
-        }
-        .pink{
-            background: pink;
-        }
-        .black{
-            background: black;
-        }
-
-    #alphabet-container {
-        position: relative;
-        font-size: 2em;
-        margin: 0 2%;
-        padding: 0;
-        width: 80vw;
-        padding: 0;
-    }
-
-     #typed-container {
-        position: relative;
-        border-color: black;
-        border-style: solid;
-        padding: 0;
-        margin: 2% 2%;
-        /* overflow-wrap <33333 */
-        overflow-wrap: break-word;
-        font-size: 1em;
-        width: 80vw;
-     }
-
-      
- 
- </style>
-
- <body>
-    <div id="intro">
-        <h1 id="title">COLOR PICKER - Desktop only</h1>
-
-        <h2 id="description">My partner has something called synesthesia.
-
-        <!-- Had to delete breaks because of innerHTML stuff how do I put the breaks in still?-->
-
-        For their specific kind, they can look at black printed letters or numbers and see colors associated with each one. I thought it would be fun to think about what we all associate certain letters with, synesthete or not. 
-
-
-        Click start on the button below and then select whatever color you feel best represents, then scroll down to start typing with the colors you chose.
-        </h2>
-
-        <a id="descriptionlink" href="https://synesthesia.com.au/types-of-synesthesia/" target="_blank">Learn more about synesthesia.</a>
-
-    </div>
-
-    <button id="startbutton">Click here to get started</button>
-
-        <h1 id="generated"></h1>
-
-    <div class="colorboxes" id="colorboxes">
-            <button class="box red" id="red"></button>
-            <button class="box orange" id="orange"> </button>
-            <button class="box yellow" id="yellow"> </button>
-            <button class="box green" id="green"> </button>
-            <button class="box blue" id="blue"> </button>
-            <button class="box purple" id="purple"> </button>
-            <button class="box pink" id="pink"> </button>
-            <button class="box black" id="black"> </button>
-    </div>
-
-    <div id="alphabet-container">
-        <span class="alphabet" id="A">A</span>
-        <span class="alphabet" id="B">B</span>
-        <span class="alphabet" id="C">C</span>
-        <span class="alphabet" id="D">D</span>
-        <span class="alphabet" id="E">E</span>
-        <span class="alphabet" id="F">F</span>
-        <span class="alphabet" id="G">G</span>
-        <span class="alphabet" id="H">H</span>
-        <span class="alphabet" id="I">I</span>
-        <span class="alphabet" id="J">J</span>
-        <span class="alphabet" id="K">K</span>
-        <span class="alphabet" id="L">L</span>
-        <span class="alphabet" id="M">M</span>
-        <span class="alphabet" id="N">N</span>
-        <span class="alphabet" id="O">O</span>
-        <span class="alphabet" id="P">P</span>
-        <span class="alphabet" id="Q">Q</span>
-        <span class="alphabet" id="R">R</span>
-        <span class="alphabet" id="S">S</span>
-        <span class="alphabet" id="T">T</span>
-        <span class="alphabet" id="U">U</span>
-        <span class="alphabet" id="V">V</span>
-        <span class="alphabet" id="W">W</span>
-        <span class="alphabet" id="X">X</span>
-        <span class="alphabet" id="Y">Y</span>
-        <span class="alphabet" id="Z">Z</span>
-    </div>
-
-    <div id="typed-container">
-          <h1 id="typed"></h1>
-    </div> 
-
-    <script>
-
-        //This sets up all the boxes as their own variables
-        var redBox = document.getElementById("red");
-        var orangeBox = document.getElementById("orange");
-        var yellowBox = document.getElementById("yellow");
-        var greenBox = document.getElementById("green");
-        var blueBox = document.getElementById("blue");
-        var purpleBox = document.getElementById("purple");
-        var pinkBox = document.getElementById("pink");
-        var blackBox = document.getElementById("black");
-
-        var colorBoxes = document.getElementById("colorboxes");
-    
-
-        var startButton = document.getElementById("startbutton");
-
-        //During initial color selection process, I'm going to change the color of all the text on the screen with it,for fun. I tried. It did not work out, only does one at a time. Just gonna leave it like this for now. 
-        var titleText = document.getElementById("title").innerHTML;
-        var descText = document.getElementById("description").innerHTML;
-
-        function generatedAlphabet() {
-
-            //Deletes button when function gets started
-            startButton.parentNode.removeChild(startButton); 
-
-            // For loop through all letters of the alphabet
-            // I just created a new first step where it creates an array with all letters
-                let alphabet = [];
-                let alphabetAssign = [];
-                let alphaChars;
-                for (alphaChars = 65; alphaChars <= 90; alphaChars++) {
-                    alphabet.push(String.fromCharCode(alphaChars));
-                    alphabetAssign.push(String.fromCharCode(alphaChars));
-                };
-
-                console.log(alphabet);
-
-                document.getElementById("generated").innerHTML = alphabet[0];
-
-                //Testing text replace. 
-                //AH! Okay! So it looks like with the replace method, it will only change the first instance of the value, I will need to use the global (g) modifier to replace all occurrences!
-                //Oh damn, check this out: https://stackoverflow.com/questions/494035/how-do-you-use-a-variable-in-a-regular-expression
-                //example from link above:
-                //The below works! I just can't update the description twice at the same time, but yeah, I now can use a variable as a regular expression. 
-                //This makes my code alil shorter! Let's see if I can apply it to the overall goal, now.  
-                    
-                function colorClick(x) {           
-
-                        var regexLetter = alphabet[0];
-                        var newRegExp = new RegExp(regexLetter,"gi");
-                        console.log(regexLetter);
-                        console.log(newRegExp);
-
-                        //I don't know how to put the new regular expression and chosen color into the replace arguments below. I FIGURED IT OUT! JUST USE THE PLUSES AW MANN.
-                        
-                        let newSpans = '<span style="color: ' + x.target.id + ';">' + alphabet[0] + '</span>';
-
-                        var titleReplace = titleText.replace(newRegExp, newSpans);
-                        document.getElementById("title").innerHTML = titleReplace;
-
-                        var descReplace = descText.replace(newRegExp, newSpans);
-
-                        document.getElementById("description").innerHTML = descReplace;
-
-                        console.log(x.target.id + " was clicked");
-
-
-                        //Assigns the color to the alphabet span id. The style to be copied from when typing?
-                        document.getElementById(alphabet[0]).style.color = x.target.id;
-                                                
-                        //Next letter
-                        if (alphabet[0] !== "Z") {
-                            alphabet.shift();
-                            document.getElementById("generated").innerHTML = alphabet[0];
-                        } else {
-                            alphabet.shift();
-                            document.getElementById("generated").innerHTML = "Alright! Now start typing and see your results in the box below.";
-                            document.getElementById("generated").style.fontSize="2em";
-                            //Insert call for typing function.
-                            typingColors();
-                            //Not sure of better way to end this function besides removing the event listeners or removing the colors entirely:
-                            colorBoxes.parentNode.removeChild(colorBoxes);
-                            };
-                    };
-
-
-                        redBox.addEventListener('click', colorClick);
-                        orangeBox.addEventListener('click', colorClick);
-                        yellowBox.addEventListener('click', colorClick);
-                        greenBox.addEventListener('click', colorClick);
-                        blueBox.addEventListener('click', colorClick);
-                        purpleBox.addEventListener('click', colorClick);
-                        pinkBox.addEventListener('click', colorClick);
-                        blackBox.addEventListener('click', colorClick);
-
-                        // trying this with Event Delegation lesson. It looks like this might be what I'm looking for! It affects the 'if' function above the color event listeners. I still haven't figured out a way to not copy/paste a listener for each color.
-                        document.getElementById("colorboxes").addEventListener("click", function(x) {
-                            if(x.target) {
-                                console.log(x.target.id);
-                            };
-                         });
-
-
-
-                        // End of "generated alphabet function"
-
-        // Potential algorithm for typing:
-
-        // "keypress events"
-         // Found the one below on stackoverflow: https://stackoverflow.com/questions/4368036/how-to-listener-the-keyboard-type-text-in-javascript
-
-                function typingColors() {
-                    var typed = document.getElementById("typed-container");
-
-                    document.onkeypress = function typing(e) {
-                                        
-
-                    e = e || window.event;
-                    var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
-                    if (charCode) {
-                        //my addition here! I think I got it!
-                        //1 bug. if i type alot without hitting space, it wont go to next line. -- FIXED THIS WITH "OVERFLOW WRAP" IN CSS
-
-                        let t = String.fromCharCode(charCode);
-                        console.log(t);
-                        
-                        //I don't know if this will work if I can't style individual additions to the innerHTML
-                        //I THINK I GOT IT. MAYBE. Set a CSS style for each color (if even necessary) and then use "setAttribute". I think it will be necessary to set a style for each color. 
-
-                        let newChars = document.createElement("span");
-                        newChars.innerText = t;
-
-                        document.getElementById("typed").appendChild(newChars);
-
-                        //Setting the color for various letters
-                        //Got it! There's most definitely a better way to do this, but right now it does the math to convert the lowercase into uppercase so that I can assign the color style to the one that was assigned to the uppercase IDs above. 
-
-                        if (charCode >= 65 && charCode <= 90) {
-                            newChars.style.color = document.getElementById(t).style.color;
-                            console.log(t.charCodeAt(0));
-                        } else if (charCode >= 97 && charCode <= 122) {
-                            newChars.style.color = document.getElementById(String.fromCharCode(charCode - 32)).style.color;
-                        };
-                    };  
-                    }; 
-                };       
-
-            // Backspace! I got it to work here, I was not able to get it to work further inside the typing function. Good enough for now :)
-
-            document.addEventListener('keydown', function(event) {
-
-              if (event.which == 8) {
-                            var select = document.getElementById("typed");
-                            select.removeChild(select.lastChild);
-                        };
-            });
-        };
-    
-    startButton.addEventListener('click', generatedAlphabet);
-            
-        
-    </script>
-  
- </body>
 </html>
