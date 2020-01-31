@@ -119,20 +119,18 @@
       position: relative;
       border-color: black;
       border-style: solid;
-      padding: 0;
+      padding: 5px;
       margin: 2% 2%;
       /* overflow-wrap <33333 */
       overflow-wrap: break-word;
-      font-size: 2em;
+      font-size: 1rem;
       width: 80vw;
     }
 
     #forminput {
       position: absolute;
-      padding: 0;
-      font-size: 2em;
+      font-size: 1rem;
       width: 80vw;
-      opacity: 0;
     }
   </style>
 
@@ -288,7 +286,7 @@
           } else {
             alphabet.shift();
             document.getElementById("generated").innerHTML =
-              "Alright! Now start typing and see your results in the box below.";
+              "Alright! Now click the box below and begin typing.";
             document.getElementById("generated").style.fontSize = "2em";
             //Insert call for typing function.
             typingColors();
@@ -327,7 +325,10 @@
 
           var typed = document.getElementById("typed-container");
 
-          typed.focus();
+          var formTyped = document.getElementById("forminput");
+
+          formTyped.style.opacity = "0";
+          typed.style.fontSize = "2rem";
 
           document.onkeypress = function typing(e) {
             e = e || window.event;
